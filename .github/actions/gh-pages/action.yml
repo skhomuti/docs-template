@@ -1,0 +1,30 @@
+name: 'Publish GitHub pages'
+description: 'Publish static files to branch with GitHub pages'
+inputs:
+  branch:
+    description: 'This is the branch you wish to deploy to, for example gh-pages or docs.'
+    required: false
+    default: gh-pages
+  folder:
+    description: >
+      The folder in your repository that you want to deploy. 
+      If you wish to deploy the root directory you can place a . here.'
+    required: true
+branding:
+  icon: 'github'
+  color: 'green'
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Pages
+      id: pages
+      uses: actions/configure-pages@v1
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: ./build
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
