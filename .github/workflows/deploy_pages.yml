@@ -38,6 +38,6 @@ jobs:
           NODE_OPTIONS: --openssl-legacy-provider
 
       - name: Deploy gh pages
-        uses: ./github/actions/gh-pages
+        uses: ./.github/actions/gh-pages
         with:
           folder: build
