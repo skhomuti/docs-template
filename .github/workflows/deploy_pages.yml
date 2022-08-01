@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  setup:
+  build:
     name: Setup GitHub Pages
     runs-on: ubuntu-latest
     steps:
